@@ -1,6 +1,6 @@
 // import { PrismaClient } from "@prisma/client";
 // But you import from @prisma/client
-/* @prisma/client did not initialize yet. Please run "prisma generate" and try to import it again. */
+/* @prisma/client did not initialize yet.Please run "prisma generate" and try to import it again. */
 import { PrismaClient } from "../generated/prisma";
 const Prisma = new PrismaClient();
 
