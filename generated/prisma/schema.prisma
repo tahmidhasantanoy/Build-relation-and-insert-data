@@ -1,0 +1,75 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             Int      @id @default(autoincrement())
+  username       String
+  email          String   @unique
+  role           Role     @default(user) // if there is no value as role then user will select
+  // Relation with user+profile ( one to one)
+  userAndprofile Profile?
+  // Relation with user+post ( one to many)
+  userAndpost    Post[]
+}
+
+model Profile {
+  id             Int     @id @default(autoincrement())
+  bio            String?
+  // Relation with profile & user
+  userId         Int     @unique
+  // Relation with profile+user ( one to one)
+  userAndprofile User    @relation(fields: [userId], references: [id])
+}
+
+model Post {
+  id                   Int             @id @default(autoincrement())
+  title                String
+  content              String
+  published            Boolean         @default(false)
+  authorId             Int?
+  createdAt            DateTime        @default(now())
+  updatedAt            DateTime        @updatedAt
+  // Relation with post+user (many to one)
+  userId               Int
+  userAndpost          User            @relation(fields: [userId], references: [id])
+  // Relation with post+post_category ( many to many)
+  post_categoryAndpost post_category[]
+}
+
+model Category {
+  id                       Int             @id @default(autoincrement())
+  name                     String          @unique
+  // Relation with category+post (many to many)
+  // It's very harmfull to use many to many relation
+  post_categoryAndcategory post_category[]
+}
+
+// For resolving many to many
+model post_category {
+  postId                   Int
+  // Relation with post+category ( many to many)
+  post_categoryAndpost     Post     @relation(fields: [postId], references: [id])
+  categoryId               Int
+  // Relation with post+category ( many to many)
+  post_categoryAndcategory Category @relation(fields: [categoryId], references: [id])
+
+  @@id([postId, categoryId])
+}
+
+enum Role {
+  user
+  admin
+}
