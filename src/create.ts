@@ -32,6 +32,7 @@ const main = async () => {
 
   // console.log(createCategory);
 
+  // Create post with relation to user and post_category to category
   // const createPost = await Prisma.post.create({
   //   data: {
   //     title: "This is title 12",
