@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev:start": "tsnd --respawn src/create.ts"
+    "dev:start": "tsnd --respawn src/relational-quries.ts"
   },
   "keywords": [],
   "author": "",

@@ -57,6 +57,32 @@ const main = async () => {
   //   },
   // });
   // console.log(createPost);
+
+  // const createPostWithManyCat = await Prisma.post.create({
+  //   data: {
+  //     title: "Many to many relation",
+  //     content: "This is content",
+  //     published: true,
+  //     authorId: 11,
+  //     userId: 2,
+  //     // want to make relation with category via post_category
+  //     post_categoryAndpost: {
+  //       create: [
+  //         {
+  //           post_categoryAndcategory: {
+  //             connect: { id: 1 },
+  //           },
+  //         },
+  //         {
+  //           post_categoryAndcategory: {
+  //             connect: { id: 3 },
+  //           },
+  //         },
+  //       ],
+  //     },
+  //   },
+  // });
+  // console.log(createPostWithManyCat);
 };
 
 main();
