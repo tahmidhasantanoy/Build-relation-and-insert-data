@@ -34,27 +34,38 @@ const filter = async () => {
   //     },
   //   });
 
-//   const notFilteringData = await prisma.post.findMany({
-//     where: {
-//       NOT: [
-//         {
-//           published: false,
-//         },
-//         {
-//           authorId: 12,
-//         },
-//       ],
-//     },
-//   });
+  //   const notFilteringData = await prisma.post.findMany({
+  //     where: {
+  //       NOT: [
+  //         {
+  //           published: false,
+  //         },
+  //         {
+  //           authorId: 12,
+  //         },
+  //       ],
+  //     },
+  //   });
 
-const startWith = await prisma.post.findMany({
-    where : {
-        title : {
-            startsWith : "This"
-        }
-    }
-})
-  console.log(startWith);
+  // const startWith = await prisma.post.findMany({
+  //     where : {
+  //         title : {
+  //             startsWith : "This"
+  //         }
+  //     }
+  // })
+
+  //find data depend on an array
+  const titleNameArray = ["title1", "title2", "title3"];
+
+  const extractDataBasedOnArray = await prisma.post.findMany({
+    where: {
+      title: {
+        in: titleNameArray,
+      },
+    },
+  });
+  console.log(extractDataBasedOnArray);
 };
 
 filter();
