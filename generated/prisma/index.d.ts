@@ -1343,16 +1343,19 @@ export namespace Prisma {
 
   export type UserAvgAggregateOutputType = {
     id: number | null
+    age: number | null
   }
 
   export type UserSumAggregateOutputType = {
     id: number | null
+    age: number | null
   }
 
   export type UserMinAggregateOutputType = {
     id: number | null
     username: string | null
     email: string | null
+    age: number | null
     role: $Enums.Role | null
   }
 
@@ -1360,6 +1363,7 @@ export namespace Prisma {
     id: number | null
     username: string | null
     email: string | null
+    age: number | null
     role: $Enums.Role | null
   }
 
@@ -1367,6 +1371,7 @@ export namespace Prisma {
     id: number
     username: number
     email: number
+    age: number
     role: number
     _all: number
   }
@@ -1374,16 +1379,19 @@ export namespace Prisma {
 
   export type UserAvgAggregateInputType = {
     id?: true
+    age?: true
   }
 
   export type UserSumAggregateInputType = {
     id?: true
+    age?: true
   }
 
   export type UserMinAggregateInputType = {
     id?: true
     username?: true
     email?: true
+    age?: true
     role?: true
   }
 
@@ -1391,6 +1399,7 @@ export namespace Prisma {
     id?: true
     username?: true
     email?: true
+    age?: true
     role?: true
   }
 
@@ -1398,6 +1407,7 @@ export namespace Prisma {
     id?: true
     username?: true
     email?: true
+    age?: true
     role?: true
     _all?: true
   }
@@ -1492,6 +1502,7 @@ export namespace Prisma {
     id: number
     username: string
     email: string
+    age: number
     role: $Enums.Role
     _count: UserCountAggregateOutputType | null
     _avg: UserAvgAggregateOutputType | null
@@ -1518,6 +1529,7 @@ export namespace Prisma {
     id?: boolean
     username?: boolean
     email?: boolean
+    age?: boolean
     role?: boolean
     userAndprofile?: boolean | User$userAndprofileArgs<ExtArgs>
     userAndpost?: boolean | User$userAndpostArgs<ExtArgs>
@@ -1528,6 +1540,7 @@ export namespace Prisma {
     id?: boolean
     username?: boolean
     email?: boolean
+    age?: boolean
     role?: boolean
   }, ExtArgs["result"]["user"]>
 
@@ -1535,6 +1548,7 @@ export namespace Prisma {
     id?: boolean
     username?: boolean
     email?: boolean
+    age?: boolean
     role?: boolean
   }, ExtArgs["result"]["user"]>
 
@@ -1542,10 +1556,11 @@ export namespace Prisma {
     id?: boolean
     username?: boolean
     email?: boolean
+    age?: boolean
     role?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "username" | "email" | "role", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "username" | "email" | "age" | "role", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     userAndprofile?: boolean | User$userAndprofileArgs<ExtArgs>
     userAndpost?: boolean | User$userAndpostArgs<ExtArgs>
@@ -1564,6 +1579,7 @@ export namespace Prisma {
       id: number
       username: string
       email: string
+      age: number
       role: $Enums.Role
     }, ExtArgs["result"]["user"]>
     composites: {}
@@ -1993,6 +2009,7 @@ export namespace Prisma {
     readonly id: FieldRef<"User", 'Int'>
     readonly username: FieldRef<"User", 'String'>
     readonly email: FieldRef<"User", 'String'>
+    readonly age: FieldRef<"User", 'Int'>
     readonly role: FieldRef<"User", 'Role'>
   }
     
@@ -6830,6 +6847,7 @@ export namespace Prisma {
     id: 'id',
     username: 'username',
     email: 'email',
+    age: 'age',
     role: 'role'
   };
 
@@ -6991,6 +7009,7 @@ export namespace Prisma {
     id?: IntFilter<"User"> | number
     username?: StringFilter<"User"> | string
     email?: StringFilter<"User"> | string
+    age?: IntFilter<"User"> | number
     role?: EnumRoleFilter<"User"> | $Enums.Role
     userAndprofile?: XOR<ProfileNullableScalarRelationFilter, ProfileWhereInput> | null
     userAndpost?: PostListRelationFilter
@@ -7000,6 +7019,7 @@ export namespace Prisma {
     id?: SortOrder
     username?: SortOrder
     email?: SortOrder
+    age?: SortOrder
     role?: SortOrder
     userAndprofile?: ProfileOrderByWithRelationInput
     userAndpost?: PostOrderByRelationAggregateInput
@@ -7012,6 +7032,7 @@ export namespace Prisma {
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
     username?: StringFilter<"User"> | string
+    age?: IntFilter<"User"> | number
     role?: EnumRoleFilter<"User"> | $Enums.Role
     userAndprofile?: XOR<ProfileNullableScalarRelationFilter, ProfileWhereInput> | null
     userAndpost?: PostListRelationFilter
@@ -7021,6 +7042,7 @@ export namespace Prisma {
     id?: SortOrder
     username?: SortOrder
     email?: SortOrder
+    age?: SortOrder
     role?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _avg?: UserAvgOrderByAggregateInput
@@ -7036,6 +7058,7 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"User"> | number
     username?: StringWithAggregatesFilter<"User"> | string
     email?: StringWithAggregatesFilter<"User"> | string
+    age?: IntWithAggregatesFilter<"User"> | number
     role?: EnumRoleWithAggregatesFilter<"User"> | $Enums.Role
   }
 
@@ -7252,6 +7275,7 @@ export namespace Prisma {
   export type UserCreateInput = {
     username: string
     email: string
+    age?: number
     role?: $Enums.Role
     userAndprofile?: ProfileCreateNestedOneWithoutUserAndprofileInput
     userAndpost?: PostCreateNestedManyWithoutUserAndpostInput
@@ -7261,6 +7285,7 @@ export namespace Prisma {
     id?: number
     username: string
     email: string
+    age?: number
     role?: $Enums.Role
     userAndprofile?: ProfileUncheckedCreateNestedOneWithoutUserAndprofileInput
     userAndpost?: PostUncheckedCreateNestedManyWithoutUserAndpostInput
@@ -7269,6 +7294,7 @@ export namespace Prisma {
   export type UserUpdateInput = {
     username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     userAndprofile?: ProfileUpdateOneWithoutUserAndprofileNestedInput
     userAndpost?: PostUpdateManyWithoutUserAndpostNestedInput
@@ -7278,6 +7304,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     userAndprofile?: ProfileUncheckedUpdateOneWithoutUserAndprofileNestedInput
     userAndpost?: PostUncheckedUpdateManyWithoutUserAndpostNestedInput
@@ -7287,12 +7314,14 @@ export namespace Prisma {
     id?: number
     username: string
     email: string
+    age?: number
     role?: $Enums.Role
   }
 
   export type UserUpdateManyMutationInput = {
     username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
   }
 
@@ -7300,6 +7329,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
   }
 
@@ -7540,17 +7570,20 @@ export namespace Prisma {
     id?: SortOrder
     username?: SortOrder
     email?: SortOrder
+    age?: SortOrder
     role?: SortOrder
   }
 
   export type UserAvgOrderByAggregateInput = {
     id?: SortOrder
+    age?: SortOrder
   }
 
   export type UserMaxOrderByAggregateInput = {
     id?: SortOrder
     username?: SortOrder
     email?: SortOrder
+    age?: SortOrder
     role?: SortOrder
   }
 
@@ -7558,11 +7591,13 @@ export namespace Prisma {
     id?: SortOrder
     username?: SortOrder
     email?: SortOrder
+    age?: SortOrder
     role?: SortOrder
   }
 
   export type UserSumOrderByAggregateInput = {
     id?: SortOrder
+    age?: SortOrder
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -7893,6 +7928,14 @@ export namespace Prisma {
     set?: string
   }
 
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
   export type EnumRoleFieldUpdateOperationsInput = {
     set?: $Enums.Role
   }
@@ -7919,14 +7962,6 @@ export namespace Prisma {
     update?: PostUpdateWithWhereUniqueWithoutUserAndpostInput | PostUpdateWithWhereUniqueWithoutUserAndpostInput[]
     updateMany?: PostUpdateManyWithWhereWithoutUserAndpostInput | PostUpdateManyWithWhereWithoutUserAndpostInput[]
     deleteMany?: PostScalarWhereInput | PostScalarWhereInput[]
-  }
-
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
   }
 
   export type ProfileUncheckedUpdateOneWithoutUserAndprofileNestedInput = {
@@ -8404,6 +8439,7 @@ export namespace Prisma {
   export type UserCreateWithoutUserAndprofileInput = {
     username: string
     email: string
+    age?: number
     role?: $Enums.Role
     userAndpost?: PostCreateNestedManyWithoutUserAndpostInput
   }
@@ -8412,6 +8448,7 @@ export namespace Prisma {
     id?: number
     username: string
     email: string
+    age?: number
     role?: $Enums.Role
     userAndpost?: PostUncheckedCreateNestedManyWithoutUserAndpostInput
   }
@@ -8435,6 +8472,7 @@ export namespace Prisma {
   export type UserUpdateWithoutUserAndprofileInput = {
     username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     userAndpost?: PostUpdateManyWithoutUserAndpostNestedInput
   }
@@ -8443,6 +8481,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     userAndpost?: PostUncheckedUpdateManyWithoutUserAndpostNestedInput
   }
@@ -8450,6 +8489,7 @@ export namespace Prisma {
   export type UserCreateWithoutUserAndpostInput = {
     username: string
     email: string
+    age?: number
     role?: $Enums.Role
     userAndprofile?: ProfileCreateNestedOneWithoutUserAndprofileInput
   }
@@ -8458,6 +8498,7 @@ export namespace Prisma {
     id?: number
     username: string
     email: string
+    age?: number
     role?: $Enums.Role
     userAndprofile?: ProfileUncheckedCreateNestedOneWithoutUserAndprofileInput
   }
@@ -8499,6 +8540,7 @@ export namespace Prisma {
   export type UserUpdateWithoutUserAndpostInput = {
     username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     userAndprofile?: ProfileUpdateOneWithoutUserAndprofileNestedInput
   }
@@ -8507,6 +8549,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     userAndprofile?: ProfileUncheckedUpdateOneWithoutUserAndprofileNestedInput
   }
