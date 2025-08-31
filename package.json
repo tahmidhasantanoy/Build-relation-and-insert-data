@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev:start": "tsnd --respawn src/aggregation.ts"
+    "dev:start": "tsnd --respawn src/group_by.ts"
   },
   "keywords": [],
   "author": "",
